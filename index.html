@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#11022d">
+<meta name="description" content="Dharm Textiles weave costing calculator">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32.png">
+<link rel="icon" type="image/png" sizes="64x64" href="icons/favicon-64.png">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<title>Dharm Textiles – Weave Costing</title>
+<link rel="stylesheet" href="css/style.css"></head>
+<body>
+<button class="menubtn" id="menubtn" aria-label="Open menu" aria-expanded="false"><span class="bars">☰</span> Menu</button>
+<div class="scrim" id="scrim"></div>
+<nav class="side" id="sidenav">
+ <div class="brand"><img class="logo" src="icons/logo.png" alt="Weave Calculator"><div><b>Dharm Textiles</b><small>FABRIC COSTING ERP</small></div></div>
+ <button class="nw" data-a="new"><b>+ New quality</b><small>Reset everything</small></button>
+ <div class="grp">MAIN TOOLS</div>
+ <button data-v="calc"><b>Fabric calculator</b><small>Warp, weft &amp; costing</small></button>
+ <button data-v="saved"><b>Saved qualities <span id="qn"></span></b><small>Saved qualities database</small></button>
+ <button data-v="yarn"><b>Yarn requirement</b><small>Order yarn planning</small></button>
+ <button data-v="draw"><b>Weaving drawing</b><small>Dobby drawing &amp; print</small></button>
+ <button data-v="sim"><b>Fabric simulation</b><small>Warp, peg &amp; weft weave view</small></button>
+ <button data-v="loom"><b>Loom RPM simulator</b><small>Loom speed &amp; production</small></button>
+ <div class="grp">PRINTS &amp; SLIPS</div>
+ <button data-v="sheet"><b>Cost sheet (print/PDF)</b><small>Full costing sheet</small></button>
+ <button data-v="job"><b>Job card slip (A4)</b><small>Loom shed weaver slip</small></button>
+ <button data-a="report"><b>Print / PDF report</b><small>Choose what to print</small></button>
+ <div class="grp">TEXT SIZE</div>
+ <div class="fsz"><button type="button" data-fs="-" aria-label="Decrease text size">A−</button><span id="fsv">100%</span><button type="button" data-fs="+" aria-label="Increase text size">A+</button><button type="button" data-fs="0" class="rs">Reset</button></div>
+ <div class="sp"></div>
+ <button class="bk" data-a="upload"><b>Upload PDF / image</b><small>Read peg plan, drawing, details</small></button>
+ <input type="file" id="upl" accept=".pdf,application/pdf,image/*" hidden>
+ <button class="bk" data-gd="1"><b>☁ Google Drive sync</b><small id="gdsub">Back up &amp; sync across devices</small></button>
+ <button class="bk" data-a="backup"><b>Full backup (all data)</b><small>Qualities, pattern, peg plan, drawing, lattice</small></button>
+ <button class="bk" data-a="restore"><b>Restore backup</b><small>Load a backup (.json or old .csv)</small></button>
+ <input type="file" id="file" accept=".json,.csv,application/json" hidden>
+<input type="file" id="docfile" multiple accept="image/*,.pdf,application/pdf" hidden>
+</nav>
+<div id="allsheet" class="sheet" style="max-width:none"></div>
+<div id="latsheet" class="sheet"></div>
+<div id="drawsheet" class="sheet dp"></div>
+<div id="pegsheet" class="sheet pgp" style="max-width:none;border:0;box-shadow:none"></div>
+<main class="main"><div class="wrap" id="app"></div></main>
+
+<script src="js/config.js"></script>
+<script src="js/app.js"></script>
+<script src="js/drive-sync.js"></script>
+<script>if("serviceWorker"in navigator&&location.protocol.startsWith("http"))addEventListener("load",()=>navigator.serviceWorker.register("sw.js").catch(()=>{}));</script>
+</body></html>
